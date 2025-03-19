@@ -83,3 +83,14 @@ button:hover {
         padding: 20px;
     }
 }
+
+.footer {
+    padding: 20px 0;
+    background-color: var(--clr-black);
+    color: var(--clr-text);
+    text-align: center;
+}
+
+.footer p {
+    margin: 0;
+}
