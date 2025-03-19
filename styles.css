@@ -1,42 +1,85 @@
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --container-bg-color: #1a1a1a;
+    --primary-color: #ffffff;
+    --primary-hover-color: #cccccc;
+    --border-color: #333333;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f8ff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     text-align: center;
     padding: 20px;
 }
 
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: var(--container-bg-color);
+    border-radius: 8px;
+}
+
 h1 {
-    color: #4682b4;
+    color: var(--primary-color);
+    margin-bottom: 30px;
 }
 
 input[type="text"] {
-    padding: 10px;
-    width: 200px;
-    border: 1px solid #ccc;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    background-color: var(--border-color);
+    color: var(--text-color);
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #4682b4;
-    color: white;
+    padding: 15px 40px; /* Increased padding to make the button longer */
+    background-color: var(--primary-color);
+    color: var(--background-color);
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #5a9bd4;
+    background-color: var(--primary-hover-color);
 }
 
 #weather {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
-    background-color: #fff;
+    background-color: var(--container-bg-color);
     display: none; /* Hide the weather box initially */
     text-align: center; /* Center align the text */
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    input[type="text"] {
+        width: 80%;
+        max-width: none;
+    }
+
+    button {
+        width: 80%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    #weather {
+        padding: 20px;
+    }
 }
