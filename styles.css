@@ -85,10 +85,24 @@ button:hover {
 }
 
 .footer {
+    margin-top: 18%;
     padding: 20px 0;
-    background-color: var(--clr-black);
+    background-color: var(--clr-background-dark);
     color: var(--clr-text);
     text-align: center;
+    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.footer .social-icons {
+    margin-bottom: 10px;
+}
+
+.footer .social-icons img {
+    transition: transform 0.3s ease;
+}
+
+.footer .social-icons img:hover {
+    transform: scale(1.2) rotate(10deg);
 }
 
 .footer p {
