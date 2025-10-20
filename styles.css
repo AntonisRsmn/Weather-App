@@ -209,6 +209,12 @@ button:active { transform: translateY(0); }
     }
 
     .current { padding: 18px; }
+
+    /* Sticky footer on mobile */
+    html, body { height: auto; }
+    body { display: flex; flex-direction: column; min-height: 100svh; overflow-x: hidden; }
+    .container { flex: 1 0 auto; }
+    .footer { margin-top: auto; }
 }
 
 .footer {
