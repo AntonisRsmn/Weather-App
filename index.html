@@ -4,14 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Weather App</h1>
-        <input type="text" id="city" placeholder="Enter city name">
-        <button onclick="getWeather()">Get Weather</button> <!-- Line 14 -->
-        <div id="weather"></div>
+        <div class="controls">
+            <input type="text" id="city" placeholder="Enter city name">
+            <div class="buttons">
+                <button id="searchBtn" onclick="getWeather()">Search</button>
+                <button id="locateBtn" onclick="useMyLocation()">Use My Location</button>
+            </div>
+        </div>
+
+        <div id="status" aria-live="polite"></div>
+
+        <section id="weather" class="weather" aria-busy="false">
+            <div id="current" class="current"></div>
+            <div id="forecast" class="forecast"></div>
+        </section>
     </div>
 
     <!-- Footer Section -->
@@ -21,9 +35,8 @@
             <img src="Imgs/github-icon.png" onclick=" window.open('https://github.com/AntonisRsmn','_blank')" height="29px" style="margin-bottom: 8px;">
             <img src="Imgs/linked-in-icon.png" onclick=" window.open('https://gr.linkedin.com/in/antonis-rusman-a46424319','_blank')" height="42px" style="padding-bottom: 3.7px;">
         </div>
-        <p>&copy; 2025 Antonis Rusman. All rights reserved.</p>
+        <p>&copy; 2025 <a href="https://rusman.gr" target="_blank" rel="noopener noreferrer">Antonis Rusman</a>. All rights reserved.</p>
     </footer>
-    </div>
 
     <script src="main.js"></script>
 </body>

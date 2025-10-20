@@ -1,67 +1,196 @@
 :root {
-    --background-color: #121212;
-    --text-color: #ffffff;
-    --container-bg-color: #1a1a1a;
-    --primary-color: #ffffff;
-    --primary-hover-color: #cccccc;
-    --border-color: #333333;
+    /* Core palette - blue theme */
+    --background-color: #0b1020;
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(56, 189, 248, 0.20), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(59, 130, 246, 0.18), transparent 60%),
+                           linear-gradient(180deg, #0b1020 0%, #0a0f1c 100%);
+    --text-color: #e6f0ff;
+    --container-bg-color: rgba(18, 27, 58, 0.55);
+    --primary-color: #e6f0ff;
+    --primary-hover-color: #cfe1ff;
+    --border-color: rgba(88, 118, 191, 0.35);
+    --muted-text: #b6c6e3;
+    --accent: #60a5fa; /* blue */
+    --card-glow: 0 8px 30px rgba(96, 165, 250, 0.12);
+}
+
+/* Dynamic themes: override only variables so components inherit visuals */
+body.theme-sunny {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(251, 191, 36, 0.25), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(252, 211, 77, 0.22), transparent 60%),
+                           linear-gradient(180deg, #0f172a 0%, #0b1020 100%);
+    --accent: #fbbf24;
+}
+body.theme-partly {
+    --background-gradient: radial-gradient(1100px 600px at -10% -10%, rgba(96, 165, 250, 0.22), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(253, 230, 138, 0.18), transparent 60%),
+                           linear-gradient(180deg, #0b1020 0%, #0a0f1c 100%);
+    --accent: #93c5fd;
+}
+body.theme-cloudy {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(148, 163, 184, 0.20), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(100, 116, 139, 0.22), transparent 60%),
+                           linear-gradient(180deg, #0a0f1c 0%, #0a0e19 100%);
+    --accent: #94a3b8;
+}
+body.theme-rain {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(56, 189, 248, 0.22), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(59, 130, 246, 0.25), transparent 60%),
+                           linear-gradient(180deg, #0a1a2b 0%, #0b1220 100%);
+    --accent: #60a5fa;
+}
+body.theme-snow {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(191, 219, 254, 0.28), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(219, 234, 254, 0.25), transparent 60%),
+                           linear-gradient(180deg, #0e172a 0%, #0b1222 100%);
+    --accent: #bfdbfe;
+}
+body.theme-thunder {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(168, 85, 247, 0.22), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(59, 130, 246, 0.18), transparent 60%),
+                           linear-gradient(180deg, #140c2a 0%, #0b0f24 100%);
+    --accent: #a78bfa;
+}
+body.theme-fog {
+    --background-gradient: radial-gradient(1200px 600px at -10% -10%, rgba(148, 163, 184, 0.18), transparent 60%),
+                           radial-gradient(900px 600px at 110% 10%, rgba(203, 213, 225, 0.18), transparent 60%),
+                           linear-gradient(180deg, #0b0f19 0%, #0b0f18 100%);
+    --accent: #cbd5e1;
+}
+
+/* Night variants tweak accent subtly; gradients are darker */
+body.theme-clear-night {
+    --background-gradient: radial-gradient(900px 600px at 80% -10%, rgba(96, 165, 250, 0.12), transparent 60%),
+                           radial-gradient(900px 600px at 10% -10%, rgba(14, 165, 233, 0.10), transparent 60%),
+                           linear-gradient(180deg, #070a14 0%, #050811 100%);
+    --accent: #7dd3fc;
+}
+body.theme-partly-night {
+    --background-gradient: radial-gradient(900px 600px at 80% -10%, rgba(96, 165, 250, 0.12), transparent 60%),
+                           radial-gradient(900px 600px at 10% -10%, rgba(253, 230, 138, 0.10), transparent 60%),
+                           linear-gradient(180deg, #070a14 0%, #060a12 100%);
+    --accent: #93c5fd;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: var(--background-color);
+    font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--background-gradient);
     color: var(--text-color);
     text-align: center;
     padding: 20px;
 }
 
 .container {
-    max-width: 600px;
+    max-width: 760px;
     margin: 40px auto;
     padding: 30px;
     background-color: var(--container-bg-color);
-    border-radius: 8px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-glow);
+    backdrop-filter: blur(10px);
 }
 
 h1 {
     color: var(--primary-color);
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+    letter-spacing: 0.3px;
 }
 
 input[type="text"] {
     padding: 15px;
     width: 100%;
-    max-width: 400px;
+    max-width: 460px;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
-    margin-bottom: 20px;
-    background-color: var(--border-color);
+    border-radius: 12px;
+    margin: 0 auto 8px auto;
+    background-color: rgba(9, 13, 30, 0.5);
     color: var(--text-color);
+    outline: none;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    box-shadow: inset 0 0 0 9999px rgba(255,255,255,0.02);
+}
+input[type="text"]::placeholder { color: #8fa6d6; }
+input[type="text"]:focus {
+    border-color: rgba(96, 165, 250, 0.65);
+    box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.15);
 }
 
 button {
-    padding: 15px 40px; /* Increased padding to make the button longer */
-    background-color: var(--primary-color);
-    color: var(--background-color);
+    padding: 14px 28px;
+    background: #fff;
+    color: #0b1020;
     border: none;
-    border-radius: 4px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.08s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
+button#locateBtn { background: var(--accent); color: #071022; }
+button#searchBtn { background: #ffffff; }
+button:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
+button:active { transform: translateY(0); }
 
-button:hover {
-    background-color: var(--primary-hover-color);
-}
+.controls { display: grid; gap: 12px; }
+.controls .buttons { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
 
-#weather {
-    margin-top: 30px;
-    padding: 30px;
+#status { margin-top: 8px; min-height: 20px; color: var(--muted-text); font-size: 0.95rem; }
+
+.weather { margin-top: 20px; display: none; }
+.weather.show { display: block; }
+
+.current {
+    padding: 26px;
     border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: var(--container-bg-color);
-    display: none; /* Hide the weather box initially */
-    text-align: center; /* Center align the text */
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(96,165,250,0.18), rgba(96,165,250,0.05));
+    box-shadow: var(--card-glow);
 }
+.current .location { font-size: 1.2rem; color: var(--muted-text); margin-bottom: 6px; }
+.current .temp { font-size: 3.2rem; font-weight: 700; }
+.current .desc { font-size: 1.1rem; color: var(--muted-text); }
+.current .meta { margin-top: 10px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; color: var(--muted-text); }
+.aqi-pill { padding: 4px 10px; border-radius: 999px; font-weight: 600; font-size: 0.85rem; }
+.aqi-good { background: rgba(34,197,94,0.18); border: 1px solid rgba(34,197,94,0.35); }
+.aqi-mod { background: rgba(234,179,8,0.18); border: 1px solid rgba(234,179,8,0.35); }
+.aqi-usg { background: rgba(245,158,11,0.18); border: 1px solid rgba(245,158,11,0.35); }
+.aqi-unh { background: rgba(239,68,68,0.18); border: 1px solid rgba(239,68,68,0.35); }
+.aqi-vunh { background: rgba(168,85,247,0.18); border: 1px solid rgba(168,85,247,0.35); }
+.aqi-haz { background: rgba(107,33,168,0.18); border: 1px solid rgba(107,33,168,0.35); }
+
+.details-grid {
+    margin-top: 14px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+}
+.detail-item {
+    padding: 10px 12px;
+    background: rgba(8,14,30,0.5);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+.detail-item .label { color: var(--muted-text); font-size: 0.85rem; }
+.detail-item .value { display: block; font-weight: 700; margin-top: 2px; }
+
+.sun-times { margin-top: 10px; color: var(--muted-text); display: flex; gap: 14px; justify-content: center; }
+
+.forecast { margin-top: 18px; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 14px; }
+.day-card {
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 12px;
+    background-color: rgba(10,16,32,0.6);
+    box-shadow: var(--card-glow);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.day-card .name { color: var(--muted-text); font-weight: 600; margin-bottom: 6px; }
+.day-card .date { color: var(--muted-text); opacity: 0.85; font-size: 0.9rem; margin-top: -2px; margin-bottom: 6px; }
+.day-card .icon { font-size: 1.6rem; margin: 4px 0; }
+.day-card .range { font-weight: 600; }
+.day-card .range span { color: var(--muted-text); font-weight: 400; }
+.day-card .pop { margin-top: 6px; color: var(--muted-text); font-size: 0.9rem; }
+.day-card:hover { transform: translateY(-2px); border-color: rgba(96,165,250,0.55); box-shadow: 0 14px 30px rgba(96,165,250,0.12); }
 
 @media (max-width: 600px) {
     .container {
@@ -79,18 +208,21 @@ button:hover {
         padding: 15px;
     }
 
-    #weather {
-        padding: 20px;
-    }
+    .current { padding: 18px; }
 }
 
 .footer {
     margin-top: 18%;
     padding: 20px 0;
-    background-color: var(--clr-background-dark);
-    color: var(--clr-text);
+    background-color: rgba(10,16,32,0.6);
+    color: var(--text-color);
     text-align: center;
-    box-shadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px -10px 25px rgba(0, 0, 0, 0.25);
+    border-top: 1px solid var(--border-color);
+    /* Full-bleed footer */
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 }
 
 .footer .social-icons {
@@ -107,4 +239,14 @@ button:hover {
 
 .footer p {
     margin: 0;
+}
+
+.footer a {
+    color: var(--primary-hover-color);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+}
+.footer a:hover {
+    color: #ffffff;
+    border-bottom-color: rgba(255,255,255,0.35);
 }
